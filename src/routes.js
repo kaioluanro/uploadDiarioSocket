@@ -4,9 +4,9 @@ const multerConfig = require("./config/multer");
 const Post = require("./models/Post");
 
 routes.get('/posts', async (req, res)=>{
-  const posts = await Post.find()
-
-  return res.json(posts)
+  const posts = await Post.find({}).sort('-createdAt').exec(function(err,files){
+    return res.json(files)
+  })
 })
 
 routes.post("/posts", multer(multerConfig).single("file"), async (req, res) => {

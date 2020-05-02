@@ -34,6 +34,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT2);
-app.listen(process.env.PORT);
+server.listen(process.env.PORT);
+//app.listen(process.env.PORT);
 
